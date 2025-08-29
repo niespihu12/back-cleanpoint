@@ -47,7 +47,11 @@ class CursoBase(BaseModel):
     contenido: str  # Nuevo campo
 
 class CursoCreate(CursoBase):
-    pass
+    # Permitir ambos nombres para compatibilidad: imagen_url (nuevo) o imagen (antiguo)
+    imagen_url: Optional[str] = None
+    imagen: Optional[str] = None
+    duracion_minutos: Optional[int] = None
+    nivel: Optional[str] = None
 
 class CursoOut(CursoBase):
     id: int
