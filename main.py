@@ -17,7 +17,7 @@ app.include_router(compras.router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://cleancoinm.netlify.app"],
+    allow_origins=["https://cleancoinm.netlify.app", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
