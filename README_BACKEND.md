@@ -86,6 +86,8 @@ Crea un archivo `.env` en el directorio `cursos/`:
 
 ```env
 # Base de datos
+# Por defecto en desarrollo usamos SQLite. Para usar Postgres establezca:
+# DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DBNAME
 DATABASE_URL=sqlite:///./cursos.db
 
 # JWT
@@ -103,7 +105,23 @@ ENVIRONMENT=development
 
 ### Base de Datos
 - **SQLite**: Base de datos por defecto (desarrollo)
-- **PostgreSQL/MySQL**: Para producción (cambiar `DATABASE_URL`)
+- **PostgreSQL/MySQL**: Para producción (cambiar `DATABASE_URL`).
+
+Ejemplo de `DATABASE_URL` para PostgreSQL:
+
+```
+postgresql://mi_usuario:mi_contraseña@localhost:5432/mi_basedatos
+```
+
+Si usas Postgres, instala dependencias y luego ejecuta:
+
+```bash
+# Instalar dependencias (incluye psycopg2-binary)
+pip install -r requirements.txt
+
+# Crear/asegurar tablas en la DB remota
+python setup_db.py
+```
 
 ## 📊 Migración de Base de Datos
 

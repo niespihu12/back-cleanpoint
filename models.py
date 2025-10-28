@@ -1,9 +1,10 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Float, DateTime
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
-Base = declarative_base()
+# Reusar la misma Base declarativa del módulo database para que
+# Base.metadata.create_all(engine) incluya estos modelos.
+from database import Base
 
 class Curso(Base):
     __tablename__ = "cursos"
